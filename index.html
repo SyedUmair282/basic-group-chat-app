@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Chat App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#loginModal').modal({
+                backdrop: 'static',
+                keyboard: false
+            }, 'show');
+        });
+    </script>
+
+
+</head>
+
+<body>
+    <!--main-->
+    <div id="container">
+        <h3>"GROUP CHAT APPLICATION"</h3>
+        <hr>
+        <div id="msg">
+
+        </div>
+        <input type="text" placeholder="Enter your message" id="input" size="40px">
+        <button id="button" onclick="send()">Send</button>
+    </div>
+    <!--login modal-->
+    <div class="modal fade" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align: center; font-weight: bold;">Login Form</h4>
+
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" style="text-align: center; background-color: lightblue;">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <input type="email" id="mail" placeholder="Enter your mail" name="mail" Required>
+                    <br>
+                    <br>
+                    <span class="glyphicon glyphicon-lock"></span>
+                    <input type="password" id="pass" placeholder="Enter your password" name="password" Required>
+                    <br>
+                    <br>
+                    <button class="btn btn-info" style="width: 150px; " onclick="login()">Log in</button>
+                    <h5>OR</h5>
+                    <button class="btn btn-primary" style="width: 150px;" data-toggle="modal" data-target="#signupModal">Sign up with e-mail</button>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" onclick="closes()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Sign up modal-->
+    <div class="modal fade" id="signupModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align: center; font-weight: bold;">Sign up Form</h4>
+
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" style="text-align: center; background-color: lightblue;">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    <input type="email" placeholder="Enter your email" id="smail">
+                    <br>
+                    <br>
+                    <span class="glyphicon glyphicon-lock"></span>
+                    <input type="password" placeholder="Enter your password" id="spass">
+                    <br>
+                    <br>
+                    <button class="btn btn-info" style="width: 150px; " onclick="signup()">Sign up</button>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyDavzh7cvf48oBrql8XZiF0kY40ZAxI5mI",
+        authDomain: "basic-group-chat.firebaseapp.com",
+        databaseURL: "https://basic-group-chat.firebaseio.com",
+        projectId: "basic-group-chat",
+        storageBucket: "basic-group-chat.appspot.com",
+        messagingSenderId: "772094713611",
+        appId: "1:772094713611:web:f3b7c83d313730473b8c0e",
+        measurementId: "G-EYZS6S70PV"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+<script src="app.js"></script>
+
+</html>
